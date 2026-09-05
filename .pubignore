@@ -1,0 +1,16 @@
+# Local files that should never be published to pub.dev.
+build/
+.dart_tool/
+.flutter-plugins-dependencies
+.metadata
+*.iml
+prompt.md
+.gitignore
+.github/
+test/failures/
+test/goldens/
+example/build/
+example/.dart_tool/
+example/.flutter-plugins-dependencies
+example/.metadata
+example/*.iml

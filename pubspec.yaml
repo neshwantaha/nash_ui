@@ -1,0 +1,29 @@
+name: nash_ui
+description: >-
+  A modern, scalable Flutter Design System built with Material 3,
+  providing design tokens, themes, responsive framework, animations, widgets, and templates.
+version: 2.11.8
+homepage: https://pub.dev/packages/nash_ui
+documentation: https://pub.dev/documentation/nash_ui/latest/
+
+environment:
+  sdk: ">=3.5.0 <4.0.0"
+  flutter: ">=3.27.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  google_fonts: ^8.1.0
+  intl: ^0.20.3
+  web: ">=0.5.1 <2.0.0"
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  integration_test:
+    sdk: flutter
+  flutter_lints: ^5.0.0
+  golden_toolkit: ^0.15.0
+
+flutter:
+  uses-material-design: true

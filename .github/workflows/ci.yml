@@ -28,15 +28,7 @@ jobs:
           channel: stable
           cache: true
       - run: flutter pub get
-      - run: flutter test
-      - name: Upload golden failures
-        if: failure()
-        uses: actions/upload-artifact@v4
-        with:
-          name: failure-images
-          path: |
-            test/failures/
-            test/goldens/
+      - run: flutter test --exclude-tags golden
 
   publish:
     name: Publish dry-run
@@ -67,7 +59,7 @@ jobs:
         working-directory: example
 
   integration:
-    name: Integration test (Windows)
+    name: Integration test & Goldens (Windows)
     runs-on: windows-latest
     steps:
       - uses: actions/checkout@v4
@@ -75,6 +67,9 @@ jobs:
         with:
           channel: stable
           cache: true
+      - run: flutter pub get
+      - name: Run Golden Tests
+        run: flutter test test/golden_test.dart
       - run: flutter pub get
         working-directory: example
       - run: flutter test integration_test/app_test.dart -d windows

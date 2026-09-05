@@ -60,37 +60,14 @@ jobs:
         working-directory: example
 
   integration:
-    name: Integration test & Goldens (Windows)
+    name: Integration test (Windows)
     runs-on: windows-latest
     steps:
       - uses: actions/checkout@v4
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
       - uses: subosito/flutter-action@v2
         with:
           channel: stable
           cache: true
-      - run: flutter pub get
-
-      - name: Regenerate golden images on CI runner
-        run: flutter test test/golden_test.dart --update-goldens
-
-      - name: Commit updated goldens (if changed)
-        shell: bash
-        run: |
-          git config user.name  "github-actions[bot]"
-          git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add test/goldens/
-          if git diff --cached --quiet; then
-            echo "No golden changes."
-          else
-            git commit -m "chore: update golden images [skip ci]"
-            git push
-          fi
-
-      - name: Verify goldens pass after update
-        run: flutter test test/golden_test.dart
-
       - run: flutter pub get
         working-directory: example
       - run: flutter test integration_test/app_test.dart -d windows

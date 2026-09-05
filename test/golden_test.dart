@@ -1,9 +1,35 @@
 @Tags(['golden'])
 library;
 
+import 'dart:typed_data';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:golden_toolkit/golden_toolkit.dart';
 import 'package:nash_ui/nash_ui.dart';
+
+/// Allows a small pixel variance (e.g. 0.5%) to account for minor OS/driver font antialiasing differences.
+class TolerantLocalFileComparator extends LocalFileComparator {
+  TolerantLocalFileComparator(super.testFile, {this.tolerance = 0.005});
+
+  final double tolerance;
+
+  @override
+  Future<bool> compare(Uint8List imageBytes, Uri golden) async {
+    final ComparisonResult result = await GoldenFileComparator.compareLists(
+      imageBytes,
+      await getGoldenBytes(golden),
+    );
+
+    if (!result.passed && result.diffPercent <= tolerance) {
+      return true;
+    }
+
+    if (!result.passed) {
+      final String error = await generateFailureOutput(result, golden, basedir);
+      throw FlutterError(error);
+    }
+    return result.passed;
+  }
+}
 
 Future<void> _pumpApp(WidgetTester tester, Widget body) async {
   await tester.pumpWidget(
@@ -26,6 +52,13 @@ void _setSurface(WidgetTester tester, Size size) {
 void main() {
   setUpAll(() async {
     await loadAppFonts();
+    if (goldenFileComparator is LocalFileComparator) {
+      final baseDir = (goldenFileComparator as LocalFileComparator).basedir;
+      goldenFileComparator = TolerantLocalFileComparator(
+        baseDir.resolve('golden_test.dart'),
+        tolerance: 0.005, // 0.5% tolerance for OS antialiasing variations
+      );
+    }
   });
 
   testWidgets('buttons render consistently', (WidgetTester tester) async {

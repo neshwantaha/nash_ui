@@ -4,6 +4,8 @@ description: >-
   providing design tokens, themes, responsive framework, animations, widgets, and templates.
 version: 2.11.8
 homepage: https://pub.dev/packages/nash_ui
+repository: https://github.com/neshwantaha/nash_ui
+issue_tracker: https://github.com/neshwantaha/nash_ui/issues
 documentation: https://pub.dev/documentation/nash_ui/latest/
 
 environment:

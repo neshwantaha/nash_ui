@@ -1,7 +1,7 @@
 # Nash UI
 
 [![pub package](https://img.shields.io/pub/v/nash_ui.svg)](https://pub.dev/packages/nash_ui)
-[![License: NU-FUL v1.0](https://img.shields.io/badge/License-Free_to_Use-emerald.svg)](LICENSE)
+[![License: BSD-3-Clause](https://img.shields.io/badge/License-BSD--3--Clause-blue.svg)](LICENSE)
 [![Flutter](https://img.shields.io/badge/Flutter-%3E%3D3.27.0-02569B?logo=flutter)](https://flutter.dev)
 
 A modern, scalable, production-ready **Flutter Design System** built on **Material 3**.
@@ -38,7 +38,7 @@ Or add it directly to your `pubspec.yaml`:
 
 ```yaml
 dependencies:
-  nash_ui: ^2.4.2
+  nash_ui: ^2.11.8
 ```
 Then run:
 
@@ -219,15 +219,9 @@ flutter test integration_test/app_test.dart -d windows  # integration tests
 See [Testing](doc/testing.md).
 
 ## License
-
-Nash UI is licensed under the **Nash UI Free Use License (NU-FUL) v1.0**.
-
-- **Free for Application Development:** You may install and use Nash UI as a dependency in personal, educational, open-source, client, commercial, and enterprise Flutter applications completely free of charge and royalty-free.
-- **Application Ownership:** You retain full, exclusive ownership and licensing rights over your own application source code, assets, and business logic that integrate Nash UI.
-- **Source Code Protection:** You may **not** modify, fork, copy, redistribute, sublicense, resell, or create derivative packages/libraries from the Nash UI source code without prior written permission from the copyright holder.
-
+ 
+Nash UI is licensed under the **BSD 3-Clause License**.
+ 
 Copyright &copy; 2026 Nashwan Taha Nheli. All rights reserved.
-
+ 
 See the [LICENSE](LICENSE) file for the complete terms and conditions.
-
-> *Disclaimer: This license is a custom proprietary free-use license (source-available for dependency use, not an OSI-approved open-source license). Commercial users should review the full terms with their legal counsel.*

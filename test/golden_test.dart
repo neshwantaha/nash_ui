@@ -1,7 +1,6 @@
 @Tags(['golden'])
 library;
 
-import 'dart:typed_data';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:golden_toolkit/golden_toolkit.dart';
 import 'package:nash_ui/nash_ui.dart';
@@ -56,7 +55,6 @@ void main() {
       final baseDir = (goldenFileComparator as LocalFileComparator).basedir;
       goldenFileComparator = TolerantLocalFileComparator(
         baseDir.resolve('golden_test.dart'),
-        tolerance: 0.005, // 0.5% tolerance for OS antialiasing variations
       );
     }
   });

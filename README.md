@@ -38,7 +38,7 @@ Or add it directly to your `pubspec.yaml`:
 
 ```yaml
 dependencies:
-  nash_ui: ^2.11.8
+  nash_ui: ^2.11.9
 ```
 Then run:
 

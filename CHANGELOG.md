@@ -6,6 +6,12 @@ in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2.11.9] - 2026-09-06
+
+### Added
+- **Repository & Issue Tracker**: Linked the official GitHub repository and issue tracker in package metadata (`https://github.com/neshwantaha/nash_ui`).
+- **License & Documentation**: Updated README badges and documentation to reflect the official OSI-approved BSD 3-Clause license and verified full platform + WASM compatibility.
+
 ## [2.11.8] - 2026-09-05
 
 ### Fixed

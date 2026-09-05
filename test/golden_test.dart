@@ -2,7 +2,6 @@
 library;
 
 import 'package:flutter_test/flutter_test.dart';
-import 'package:golden_toolkit/golden_toolkit.dart';
 import 'package:nash_ui/nash_ui.dart';
 
 /// Allows a small pixel variance (e.g. 0.5%) to account for minor OS/driver font antialiasing differences.
@@ -49,8 +48,7 @@ void _setSurface(WidgetTester tester, Size size) {
 }
 
 void main() {
-  setUpAll(() async {
-    await loadAppFonts();
+  setUpAll(() {
     if (goldenFileComparator is LocalFileComparator) {
       final baseDir = (goldenFileComparator as LocalFileComparator).basedir;
       goldenFileComparator = TolerantLocalFileComparator(

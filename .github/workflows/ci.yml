@@ -40,6 +40,7 @@ jobs:
           channel: stable
           cache: true
       - run: flutter pub get
+      - run: git reset --hard
       - run: flutter pub publish --dry-run
 
   example:

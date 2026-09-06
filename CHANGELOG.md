@@ -6,6 +6,12 @@ in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2.11.10] - 2026-09-06
+
+### Changed
+- Removed discontinued `golden_toolkit` dev dependency — golden tests now use `flutter_test` only.
+- Golden tests excluded from CI to avoid platform-specific pixel drift; run locally with `flutter test test/golden_test.dart`.
+
 ## [2.11.9] - 2026-09-06
 
 ### Added
